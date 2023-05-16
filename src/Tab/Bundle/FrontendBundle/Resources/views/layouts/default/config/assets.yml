@@ -2,3 +2,4 @@ styles:
   inputs:
     - bundles/tabfrontend/scss/components/category-title.scss
     - bundles/tabfrontend/scss/components/shopping-list-dropdown.scss
+    - bundles/tabfrontend/scss/components/filters.scss
