@@ -1,0 +1,11 @@
+{
+    "name": "tabhan/oro-practice",
+    "type": "project",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Tab\\Bundle\\FrontendBundle\\": "src/Tab/Bundle/FrontendBundle"
+        }
+    },
+    "require": {}
+}
