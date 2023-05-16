@@ -1,0 +1,2 @@
+bundles:
+  - { name: Tab\Bundle\FrontendBundle\TabFrontendBundle, priority: 400 }

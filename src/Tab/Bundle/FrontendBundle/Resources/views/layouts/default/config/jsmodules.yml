@@ -1,0 +1,5 @@
+dynamic-imports:
+  commons:
+    - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
+    - tabfrontend/js/app/views/delete-shopping-list-view
+    - tabfrontend/js/app/views/items-counter-view

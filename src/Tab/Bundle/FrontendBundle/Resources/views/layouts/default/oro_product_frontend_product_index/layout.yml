@@ -1,0 +1,6 @@
+layout:
+  actions:
+    - '@appendOption':
+        id: category_title
+        optionName: additional_block_prefixes
+        optionValue: [title_with_count]

@@ -1,0 +1,5 @@
+datagrids:
+  frontend-product-search-grid:
+    options:
+      jsmodules:
+        - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
