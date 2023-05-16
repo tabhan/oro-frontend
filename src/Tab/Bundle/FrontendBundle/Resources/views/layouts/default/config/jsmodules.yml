@@ -2,4 +2,12 @@ dynamic-imports:
   commons:
     - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
     - tabfrontend/js/app/views/delete-shopping-list-view
+  orodatagrid:
     - tabfrontend/js/app/views/items-counter-view
+    - tabfrontend/js/filter/frontend-product-price-filter
+
+map:
+  '*':
+    oro/filter/frontend-product-price-filter: tabfrontend/js/filter/frontend-product-price-filter
+  tabfrontend/js/filter/frontend-product-price-filter:
+    oro/filter/frontend-product-price-filter: oro/filter/frontend-product-price-filter
