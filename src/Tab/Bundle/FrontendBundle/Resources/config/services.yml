@@ -1,0 +1,7 @@
+services:
+  Tab\Bundle\FrontendBundle\DataGrid\Extension\BrandIconExtension:
+    arguments:
+      - '@oro_attachment.manager'
+      - '@oro_entity.doctrine_helper'
+    tags:
+      - oro_datagrid.extension

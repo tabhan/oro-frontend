@@ -4,10 +4,15 @@ dynamic-imports:
     - tabfrontend/js/app/views/delete-shopping-list-view
   orodatagrid:
     - tabfrontend/js/app/views/items-counter-view
+    - tabfrontend/js/app/views/frontend-select-filter
     - tabfrontend/js/filter/frontend-product-price-filter
 
 map:
   '*':
     oro/filter/frontend-product-price-filter: tabfrontend/js/filter/frontend-product-price-filter
+    orofrontend/js/app/datafilter/frontend-multiselect-decorator: tabfrontend/js/app/datafilter/frontend-multiselect-decorator
+    oro/filter/select-filter: tabfrontend/js/app/views/frontend-select-filter
   tabfrontend/js/filter/frontend-product-price-filter:
     oro/filter/frontend-product-price-filter: oro/filter/frontend-product-price-filter
+  tabfrontend/js/app/datafilter/frontend-multiselect-decorator:
+    orofrontend/js/app/datafilter/frontend-multiselect-decorator: orofrontend/js/app/datafilter/frontend-multiselect-decorator
