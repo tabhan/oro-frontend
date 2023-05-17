@@ -3,3 +3,9 @@ datagrids:
     options:
       jsmodules:
         - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
+
+  frontend-customer-user-shopping-list-edit-grid:
+    options:
+      toolbarOptions:
+        pagination:
+          onePage: true
