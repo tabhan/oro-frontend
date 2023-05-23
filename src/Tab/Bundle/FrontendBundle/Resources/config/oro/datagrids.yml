@@ -17,3 +17,5 @@ datagrids:
         editable: true
         order: 1
         label: ''
+    properties:
+      ordinal: ~
