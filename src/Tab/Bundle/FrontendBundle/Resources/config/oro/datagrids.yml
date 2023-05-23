@@ -4,10 +4,16 @@ datagrids:
       jsmodules:
         - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
 
-  frontend-customer-user-shopping-list-edit-grid:
+  frontend-customer-user-shopping-list-grid:
     options:
       toolbarOptions:
         pagination:
           onePage: true
       jsmodules:
         - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
+    columns:
+      checked:
+        frontend_type: boolean
+        editable: true
+        order: 1
+        label: ''

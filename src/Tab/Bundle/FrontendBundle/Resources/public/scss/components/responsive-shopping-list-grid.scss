@@ -1,0 +1,23 @@
+.responsive-shopping-list-layout {
+
+  .grid-container {
+
+    .grid-body {
+
+      .grid-row {
+
+        .grid-body-cell-checked{
+          vertical-align: middle;
+
+          &::after {
+            content: unset;
+          }
+
+          input {
+            transform: scale(2);
+          }
+        }
+      }
+    }
+  }
+}
