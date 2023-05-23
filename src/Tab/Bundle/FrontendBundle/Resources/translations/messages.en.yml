@@ -1,2 +1,5 @@
-oro.product:
-  brand.icon.label: Icon
+oro:
+  product:
+    brand.icon.label: Icon
+  shoppinglist:
+    order.label: Order

@@ -1,0 +1,19 @@
+imports:
+  -
+    workflow: b2b_flow_checkout
+    as: tab_checkout
+    replace:
+      - transition_definitions.start_from_shoppinglist_definition.actions
+      - attributes.shopping_list_items_info
+  -
+    resource: tab_checkout/attributes.yml
+  -
+    resource: tab_checkout/transition_definitions.yml
+
+workflows:
+  tab_checkout:
+    entity: Oro\Bundle\CheckoutBundle\Entity\Checkout
+    entity_attribute: checkout
+
+    defaults:
+      active: false

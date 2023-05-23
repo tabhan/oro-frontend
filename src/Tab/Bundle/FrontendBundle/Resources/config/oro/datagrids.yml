@@ -11,11 +11,24 @@ datagrids:
           onePage: true
       jsmodules:
         - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
+    source:
+      query:
+        select:
+          - lineItem.checked
+          - orderInfo.id as orderId
+        join:
+          left:
+            - { join: lineItem.order, alias: orderInfo }
+        orderBy:
+          - column: lineItem.ordinal
+            dir: ASC
+          - column: lineItem.id
+            dir: ASC
     columns:
       checked:
-        frontend_type: boolean
+        frontend_type: shopping-list-item-checkbox
         editable: true
         order: 1
         label: ''
     properties:
-      ordinal: ~
+      orderId: ~

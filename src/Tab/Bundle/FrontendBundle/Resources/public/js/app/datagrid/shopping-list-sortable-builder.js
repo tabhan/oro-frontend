@@ -1,6 +1,7 @@
 define([
-    'underscore'
-], function(_) {
+    'underscore',
+    'oroui/js/mediator',
+], function(_, mediator) {
     'use strict';
 
     return {
@@ -10,10 +11,12 @@ define([
         checkingRequired: false,
 
         processDatagridOptions(deferred, options) {
-            _.each(options.data.data, (e, i) => {
-                e.ordinal = i;
-                e.row_attributes = {'data-id': e.id};
-            });
+            _.each(options.data.data, (e, i) => _.extend(e, {
+                ordinal: i,
+                row_attributes: {'data-id': e.id},
+                checked: e.checked || !!e.orderId,
+                row_class_name: `${e.row_class_name} ${e.orderId ? 'ordered' : ''}`,
+            }));
             deferred.resolve();
         },
 
@@ -21,9 +24,20 @@ define([
             gridPromise.done(({collection, body: {$el}}) => {
                 this.collection = collection;
                 this.checkRequired(collection.first());
+                mediator.on('workflow:transition:execute', event => {
+                    const transitionUrl = event.element.data('transitionUrl') || '';
+                    if (transitionUrl.search('/start_from_shoppinglist') > 0) {
+                        const info = this.collection.reduce(
+                            (memo, e) => _.extend(memo, {[e.id]: _.pick(e.attributes, 'checked', 'ordinal')}),
+                            {}
+                        );
+                        event.data = JSON.stringify({shopping_list_items_info: JSON.stringify(info)});
+                    }
+                });
+
                 let extRow;
                 $el.sortable({
-                    items: '.grid-row:not(.extension-row)',
+                    items: '.grid-row:not(.ordered,.extension-row)',
                     start: (e, {placeholder}) => extRow = placeholder.next('.extension-row'),
                     update: (e, {item}) => {
                         item.after(extRow);

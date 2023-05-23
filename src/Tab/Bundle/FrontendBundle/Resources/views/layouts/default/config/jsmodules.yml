@@ -1,3 +1,5 @@
+aliases:
+  oro/datagrid/cell/shopping-list-item-checkbox-cell$: tabfrontend/js/datagrid/cell/shopping-list-item-checkbox-cell
 dynamic-imports:
   commons:
     - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
@@ -8,13 +10,17 @@ dynamic-imports:
     - tabfrontend/js/filter/frontend-product-price-filter
   oroshoppinglist:
     - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
+    - oro/datagrid/cell/shopping-list-item-checkbox-cell
 
 map:
   '*':
     oro/filter/frontend-product-price-filter: tabfrontend/js/filter/frontend-product-price-filter
     orofrontend/js/app/datafilter/frontend-multiselect-decorator: tabfrontend/js/app/datafilter/frontend-multiselect-decorator
     oro/filter/select-filter: tabfrontend/js/app/views/frontend-select-filter
+    oroworkflow/js/transition-executor: tabfrontend/js/transition-executor
   tabfrontend/js/filter/frontend-product-price-filter:
     oro/filter/frontend-product-price-filter: oro/filter/frontend-product-price-filter
   tabfrontend/js/app/datafilter/frontend-multiselect-decorator:
     orofrontend/js/app/datafilter/frontend-multiselect-decorator: orofrontend/js/app/datafilter/frontend-multiselect-decorator
+  tabfrontend/js/transition-executor:
+    oroworkflow/js/transition-executor: oroworkflow/js/transition-executor
