@@ -3,11 +3,12 @@ import BaseClass from 'oroui/js/base-class';
 export const eventBroker = new BaseClass();
 
 export default {
+
     /**
      * Init() function is required
      */
-    init: (deferred, options) => {
-        options.gridPromise.done(({collection}) => {
+    init(deferred, {gridPromise}) {
+        gridPromise.done(({collection}) => {
             collection.on('reset', () => {
                 eventBroker.trigger('reset', collection.state);
             })
@@ -16,6 +17,5 @@ export default {
         }).fail(function() {
             deferred.reject();
         });
-        return deferred.resolve();
     }
 };

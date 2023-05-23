@@ -6,6 +6,8 @@ dynamic-imports:
     - tabfrontend/js/app/views/items-counter-view
     - tabfrontend/js/app/views/frontend-select-filter
     - tabfrontend/js/filter/frontend-product-price-filter
+  oroshoppinglist:
+    - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
 
 map:
   '*':

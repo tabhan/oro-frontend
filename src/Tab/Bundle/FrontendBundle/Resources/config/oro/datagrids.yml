@@ -9,3 +9,5 @@ datagrids:
       toolbarOptions:
         pagination:
           onePage: true
+      jsmodules:
+        - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
