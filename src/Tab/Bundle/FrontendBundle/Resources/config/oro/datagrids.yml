@@ -16,6 +16,7 @@ datagrids:
         select:
           - lineItem.checked
           - orderInfo.id as orderId
+          - orderInfo.identifier
         join:
           left:
             - { join: lineItem.order, alias: orderInfo }
@@ -30,5 +31,9 @@ datagrids:
         editable: true
         order: 1
         label: ''
+      orderInfo:
+        frontend_type: html
+        type: twig
+        template: '@TabFrontend/Datagrid/ShoppingList/order.html.twig'
     properties:
       orderId: ~
