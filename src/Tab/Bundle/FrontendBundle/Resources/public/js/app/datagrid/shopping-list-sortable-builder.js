@@ -24,14 +24,19 @@ define([
             gridPromise.done(({collection, body: {$el}}) => {
                 this.collection = collection;
                 this.checkRequired(collection.first());
+                collection
+                    .on('change:checked', model => {
+                        if (model.get('ordinal')) {
+                            this.checkRequired(model);
+                        }
+                    })
+                    .on('beforeFetch', () => this.saveLineItemsInfo())
+                    .on('reset', () => this.loadLineItemsInfo());
                 mediator.on('workflow:transition:execute', event => {
                     const transitionUrl = event.element.data('transitionUrl') || '';
                     if (transitionUrl.search('/start_from_shoppinglist') > 0) {
-                        const info = this.collection.reduce(
-                            (memo, e) => _.extend(memo, {[e.id]: _.pick(e.attributes, 'checked', 'ordinal')}),
-                            {}
-                        );
-                        event.data = JSON.stringify({shopping_list_items_info: JSON.stringify(info)});
+                        this.saveLineItemsInfo();
+                        event.data = JSON.stringify({shopping_list_items_info: JSON.stringify(this.lineItemsInfo)});
                     }
                 });
 
@@ -84,6 +89,20 @@ define([
                 }
             });
             this.checkingRequired = false;
+        },
+
+        saveLineItemsInfo() {
+            this.lineItemsInfo = this.collection.reduce(
+                (memo, e) => _.extend(memo, {[e.id]: _.pick(e.attributes, 'checked', 'ordinal')}),
+                {}
+            );
+        },
+
+        loadLineItemsInfo() {
+            this.collection.each(model => {
+                const info = this.saveLineItemsInfo[model.id];
+                info && model.set(info);
+            });
         },
     };
 });

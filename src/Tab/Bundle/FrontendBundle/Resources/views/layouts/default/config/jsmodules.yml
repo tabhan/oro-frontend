@@ -1,5 +1,5 @@
 aliases:
-  oro/datagrid/cell/shopping-list-item-checkbox-cell$: tabfrontend/js/datagrid/cell/shopping-list-item-checkbox-cell
+  oro/datagrid/cell/shopping-list-item-checkbox-cell$: tabfrontend/js/app/datagrid/cell/shopping-list-item-checkbox-cell
 dynamic-imports:
   commons:
     - tabfrontend/js/app/datagrid/frontend-product-items-counter-builder
