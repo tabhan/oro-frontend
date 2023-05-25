@@ -93,18 +93,12 @@
         <div {{ block('block_attributes') }}>
             {% if shoppingList.lineItems|length > 0 %}
                 <div class="shopping-list-dropdown__product-list">
-                    {% for lineItem in shoppingList.lineItems|default([])|slice(0, 11) %}
-                        {% if loop.index == 11 %}
-                            <div class="shopping-list-dropdown__product-base">
-                                <span class="shopping-list-dropdown__ellipsis">...</span>
-                            </div>
-                        {% else %}
-                            <div class="shopping-list-dropdown__product-item">
-                                {%- for child in block -%}
-                                    {{ block_widget(child, {lineItem: lineItem}) }}
-                                {%- endfor -%}
-                            </div>
-                        {% endif %}
+                    {% for lineItem in shoppingList.lineItems|default([]) %}
+                        <div class="shopping-list-dropdown__product-item">
+                            {%- for child in block -%}
+                                {{ block_widget(child, {lineItem: lineItem}) }}
+                            {%- endfor -%}
+                        </div>
                     {% endfor %}
                 </div>
             {% else %}
