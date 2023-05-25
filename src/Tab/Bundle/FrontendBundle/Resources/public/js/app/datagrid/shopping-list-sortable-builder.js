@@ -28,6 +28,8 @@ define([
                     .on('change:checked', model => {
                         if (model.get('ordinal')) {
                             this.checkRequired(model);
+                        } else {
+                            model.set('checked', true);
                         }
                     })
                     .on('beforeFetch', () => this.saveLineItemsInfo())
@@ -45,6 +47,7 @@ define([
                     items: '.grid-row:not(.ordered,.extension-row)',
                     start: (e, {placeholder}) => extRow = placeholder.next('.extension-row'),
                     update: (e, {item}) => {
+                        item.prev().after(item.next('.extension-row'));
                         item.after(extRow);
                         _.each($el.sortable('instance').items, ({item: e}) => {
                             // Update ordinal for each line item
