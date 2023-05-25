@@ -7,6 +7,9 @@ datagrids:
   frontend-customer-user-shopping-list-grid:
     options:
       toolbarOptions:
+        pageSize:
+          items: [0]
+          default_per_page: 0
         pagination:
           onePage: true
       jsmodules:
