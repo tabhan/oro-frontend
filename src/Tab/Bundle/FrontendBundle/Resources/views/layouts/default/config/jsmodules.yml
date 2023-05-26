@@ -10,6 +10,7 @@ dynamic-imports:
     - tabfrontend/js/filter/frontend-product-price-filter
   oroshoppinglist:
     - tabfrontend/js/app/datagrid/shopping-list-sortable-builder
+    - tabfrontend/js/app/datagrid/plugins/shopping-list-inline-editing-plugin
     - oro/datagrid/cell/shopping-list-item-checkbox-cell
 
 map:

@@ -40,3 +40,7 @@ datagrids:
         template: '@TabFrontend/Datagrid/ShoppingList/order.html.twig'
     properties:
       orderId: ~
+
+  frontend-customer-user-shopping-list-edit-grid:
+    inline_editing:
+      plugin: tabfrontend/js/app/datagrid/plugins/shopping-list-inline-editing-plugin
