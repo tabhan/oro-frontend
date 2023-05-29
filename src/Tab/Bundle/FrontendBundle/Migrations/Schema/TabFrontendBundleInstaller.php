@@ -11,6 +11,7 @@ use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtension;
 use Oro\Bundle\EntityExtendBundle\Migration\Extension\ExtendExtensionAwareInterface;
 use Oro\Bundle\MigrationBundle\Migration\Installation;
 use Oro\Bundle\MigrationBundle\Migration\QueryBag;
+use Oro\Bundle\ProductBundle\Migrations\Schema\OroProductBundleInstaller;
 
 class TabFrontendBundleInstaller implements
     Installation,
