@@ -1,7 +1,7 @@
 oro:
     workflow:
         tab_checkout:
-            label: Checkout
+            label: Tab Checkout
             step:
                 customer_consents:
                     label: 'Agreements'
