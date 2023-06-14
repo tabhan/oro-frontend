@@ -1,0 +1,24 @@
+.shopping-list-dropdown__product-total {
+  .input-widget {
+    width: 40px;
+    //margin-right: 10px;
+  }
+}
+
+.responsive-shopping-list-layout {
+  .grid-container {
+    .grid-body {
+      .grid-row {
+        .grid-body-cell-checked_item {
+          vertical-align: middle;
+          &::after {
+            content: unset;
+          }
+        }
+        .grid-body-cell-order_id {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

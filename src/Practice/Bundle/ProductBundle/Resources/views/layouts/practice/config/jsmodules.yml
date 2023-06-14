@@ -1,0 +1,22 @@
+aliases:
+  oro/filter/product-brand-list-filter$: practiceproduct/js/filter/product-brand-list-filter
+  oro/filter/frontend-product-price-filter$: practiceproduct/js/filter/practice-frontend-product-price-filter
+
+dynamic-imports:
+  oroproduct:
+    - practiceproduct/js/app/views/quantity-update-view
+    - practiceproduct/js/app/views/frontend-product-search-title
+    - practiceproduct/js/app/datagrid/frontend-product-search-grid-builder
+    - practiceproduct/js/filter/product-brand-list-filter
+    - practiceproduct/js/datafilter/customize-frontend-multiselect-decorator
+    - tpl-loader!practiceproduct/templates/filter/product-brand-list-filter.html
+  orofilter:
+    - oro/filter/product-brand-list-filter
+
+#map:
+#  '*':
+#    oropricing/js/filter/frontend-product-price-filter: practiceproduct/js/filter/practice-frontend-product-price-filter
+#  practiceproduct/js/filter/practice-frontend-product-price-filter:
+#    oropricing/js/filter/frontend-product-price-filter: oropricing/js/filter/frontend-product-price-filter
+
+

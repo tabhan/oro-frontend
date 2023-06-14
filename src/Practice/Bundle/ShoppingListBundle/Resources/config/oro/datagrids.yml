@@ -1,0 +1,35 @@
+datagrids:
+  frontend-customer-user-shopping-list-edit-grid:
+    options:
+      toolbarOptions:
+        pagination:
+          onePage: true
+      jsmodules:
+        - practiceshoppinglist/js/app/datagrid/frontend-customer-user-shopping-list-edit-grid-builder
+    source:
+      query:
+        select:
+          - orderInfo.id as order_id
+          - orderInfo.identifier as order_identifier
+        join:
+          left:
+            - { join: lineItem.order, alias: orderInfo }
+    properties:
+      order_identifier: ~
+    columns:
+      checked_item:
+        frontend_type: checked-item
+        editable: true
+        order: 1
+        label: ''
+      order_id:
+        label: practice.frontend.shoppinglist.lineitem.order_id.label
+        frontend_type: html
+        type: twig
+        template: '@PracticeShoppingList/Datagrid/ShoppingList/order.html.twig'
+    mass_actions:
+      delete:
+        disabled: true
+      move:
+        disabled: true
+

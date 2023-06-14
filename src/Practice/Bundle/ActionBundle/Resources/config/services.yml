@@ -1,0 +1,4 @@
+services:
+  Practice\Bundle\ActionBundle\Layout\DataProvider\LayoutButtonProvider:
+    arguments:
+      - '@oro_action.operation_registry'

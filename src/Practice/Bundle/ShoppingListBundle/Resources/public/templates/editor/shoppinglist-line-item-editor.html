@@ -1,0 +1,30 @@
+<% let oroshoppinglist = _.macros('oroshoppinglist') %>
+
+<div class="inline-editor__inner">
+    <div class="inline-editor__fields">
+        <input
+            name="quantity"
+            type="number"
+            inputmode="text"
+            value="<%- quantity %>"
+            class="input input-qty"
+            aria-label="<%- _.__('oro.frontend.shoppinglist.inline_editing.quantity.aria_label') %>"
+            autocomplete="off"
+            <%- orderId ? "disabled" : "" %>
+        >
+        <div>
+            <div class="select" name="<%- orderId ? '' : 'unitCode' %>" tabindex="0" data-focused=".select2-container" title="item"><%- unit %></div>
+            <div class="select2-drop hide" style="display: block; width: 70px;">
+                <ul class="select2-results">
+                    <% _.each(units, function(data, value) { %>
+                    <li name ="item-unit" data-unit ="<%- value %>" class="select2-results-dept-0 select2-result select2-result-selectable <%- value == unit ? 'select2-highlighted' : 'select2-not-highlighted' %>" id="select2-result-447"
+                        role="option" aria-selected="true">
+                        <div class="select2-result-label"><%- oroshoppinglist.renderUnit({unit: value, quantity: 1}) %>
+                        </div>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

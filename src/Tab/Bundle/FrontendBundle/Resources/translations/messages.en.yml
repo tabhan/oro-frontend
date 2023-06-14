@@ -1,9 +1,0 @@
-oro:
-  product:
-    brand.icon.label: Icon
-  shoppinglist:
-    order.label: Order
-
-tab.frontend:
-  shoppinglist:
-    order.link.label: 'Order #%id%'

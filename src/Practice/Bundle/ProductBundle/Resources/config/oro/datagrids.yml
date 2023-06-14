@@ -1,0 +1,6 @@
+datagrids:
+  frontend-product-search-grid:
+    options:
+      frontend: true
+      jsmodules:
+        - practiceproduct/js/app/datagrid/frontend-product-search-grid-builder

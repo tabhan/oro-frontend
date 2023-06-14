@@ -1,0 +1,4 @@
+services:
+  Practice\Bundle\ShoppingListBundle\Provider\ShoppingListUnitsProvider:
+    tags:
+      - { name: layout.data_provider, alias: practice_shopping_list_units }

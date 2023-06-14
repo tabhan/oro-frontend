@@ -1,0 +1,13 @@
+{% block _category_title_widget %}
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' category-title',
+        'data-page-component-view': 'practiceproduct/js/app/views/frontend-product-search-title',
+        'data-page-component-options': {
+            'title': text|e,
+        }|json_encode
+    }) %}
+
+    <h1 {{ block('block_attributes') }}>
+        {{ block_widget(block) }}
+    </h1>
+{% endblock %}

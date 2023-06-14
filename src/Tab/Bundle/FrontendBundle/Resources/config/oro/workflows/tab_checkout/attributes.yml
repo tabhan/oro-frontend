@@ -1,5 +1,0 @@
-workflows:
-  tab_checkout:
-    attributes:
-      shopping_list_items_info:
-        type: string

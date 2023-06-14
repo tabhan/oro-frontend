@@ -1,0 +1,5 @@
+parent: default
+label:  Practice
+description: Practice theme.
+groups: [ commerce ]
+logo: bundles/practicefrontend/practice/images/logo/logo.png

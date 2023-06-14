@@ -1,8 +1,0 @@
-layout:
-  actions:
-    - '@setBlockTheme':
-        themes: layout.html.twig
-    - '@appendOption':
-        id: search_title
-        optionName: additional_block_prefixes
-        optionValue: [ title_with_count ]

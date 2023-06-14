@@ -1,9 +1,0 @@
-layout:
-  actions:
-    - '@setBlockTheme':
-        themes: shopping_list_widget.html.twig
-    - '@setOption':
-        id: header_row_shopping_toggle
-        optionName: attr.data-page-component-options.reloadEvents
-        optionValue:
-            - 'layout-subtree:update:shopping_list_set_default'

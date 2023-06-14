@@ -1,0 +1,13 @@
+action_groups:
+  shopping_list_link_order_group:
+    actions:
+      - '@call_service_method':
+          service: practice_frontend.checkout.action
+          method: linkOrderToShoppingListItem
+          method_parameters: [ $.checkout, $.order ]
+#  b2b_flow_checkout_finish_checkout:
+#    actions:
+#      - '@call_service_method':
+#          service: practice_frontend.checkout.action
+#          method: linkOrderToShoppingListItem
+#          method_parameters: [ $.checkout, $.order ]

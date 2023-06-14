@@ -1,0 +1,25 @@
+aliases:
+  oro/datagrid/cell/checked-item-cell$: practiceshoppinglist/js/app/datagrid/cell/checked-item-cell
+dynamic-imports:
+  oroproduct:
+    - practiceshoppinglist/js/app/views/quantity-update-view
+  practiceshoppinglist:
+    - practiceshoppinglist/js/app/views/editor/minicart-line-item-editor-view
+    - practiceshoppinglist/js/app/datagrid/frontend-customer-user-shopping-list-edit-grid-builder
+    - tpl-loader!practiceshoppinglist/templates/editor/shoppinglist-line-item-editor.html
+  orodatagrid:
+    - oro/datagrid/cell/checked-item-cell
+map:
+  '*':
+    oroworkflow/js/transition-executor: practiceshoppinglist/js/workflow/transition-executor
+    oroshoppinglist/js/datagrid/plugins/shopping-list-inline-editing-plugin: practiceshoppinglist/js/app/datagrid/plugins/practice-shopping-list-inline-editing-plugin
+    oro/datagrid/action/delete-product-action: practiceshoppinglist/js/app/datagrid/action/practice-delete-product-action
+    oro/datagrid/action/add-notes-action: practiceshoppinglist/js/app/datagrid/action/practice-add-notes-action
+  practiceshoppinglist/js/workflow/transition-executor:
+    oroworkflow/js/transition-executor: oroworkflow/js/transition-executor
+  practiceshoppinglist/js/app/datagrid/plugins/practice-shopping-list-inline-editing-plugin:
+    oroshoppinglist/js/datagrid/plugins/shopping-list-inline-editing-plugin: oroshoppinglist/js/datagrid/plugins/shopping-list-inline-editing-plugin
+  practiceshoppinglist/js/app/datagrid/action/practice-delete-product-action:
+    oro/datagrid/action/delete-product-action: oro/datagrid/action/delete-product-action
+  practiceshoppinglist/js/app/datagrid/action/practice-add-notes-action:
+    oro/datagrid/action/add-notes-action: oro/datagrid/action/add-notes-action

@@ -1,0 +1,11 @@
+layout:
+    actions:
+        - '@add':
+            id: __line_item_form_wrapper
+            blockType: layout_subtree_update
+            parentId: __root
+            options:
+                reloadEvents: ['frontend:shopping-list-item-quantity:update']
+        - '@move':
+            id: __line_item_form
+            parentId: __line_item_form_wrapper

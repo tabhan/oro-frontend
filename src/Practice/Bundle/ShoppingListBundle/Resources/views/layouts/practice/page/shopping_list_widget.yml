@@ -1,0 +1,34 @@
+layout:
+    actions:
+        - '@setBlockTheme':
+              themes: 'shopping_list_widget.html.twig'
+        - '@setOption':
+            id: main_menu_shopping_lists_dropdown_container
+            optionName: productsMatchedPrices
+            optionValue: '=data["oro_shopping_list_products"].getMatchedPrices(shoppingLists)'
+
+        - '@setOption':
+            id: main_menu_shopping_lists_dropdown_container
+            optionName: vars.shoppingListUnits
+            optionValue: '=data["practice_shopping_list_units"].getCurrentShoppingListUnits(shoppingLists)'
+
+        - '@add':
+              id: main_menu_shopping_lists_dropdown_view
+              parentId: header_row_shopping_toggle
+              siblingId: main_menu_shopping_lists_dropdown_remove
+              prepend: true
+              blockType: shopping_list_dropdown_view
+
+        - '@add':
+            id: main_menu_shopping_lists_dropdown_remove
+            parentId: header_row_shopping_toggle
+            siblingId: main_menu_shopping_lists_dropdown_create
+            prepend: true
+            blockType: shopping_list_dropdown_remove
+            options:
+                visible: '=data["feature"].isFeatureEnabled("shopping_list_create") && data["acl"].isGranted("oro_shopping_list_frontend_create")'
+                vars:
+                    shoppingList: '=data["oro_shopping_list_customer_user_shopping_lists"].getCurrent()'
+                    buttons: '=data["buttons"].getByGroup(data["oro_shopping_list_customer_user_shopping_lists"].getCurrent(), null, "shopping_list_actions")'
+
+

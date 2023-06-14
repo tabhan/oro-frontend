@@ -1,0 +1,73 @@
+workflows:
+  practice_checkout:
+    transition_definitions:
+      start_from_shoppinglist_definition:
+        actions:
+          - '@call_service_method':
+              service: practice_frontend.checkout.action
+              method: beforeStartCheckout
+              method_parameters: [ $.result.shoppingList, $.data.shopping_list_checked_items ]
+          - '@run_action_group':
+              action_group: start_shoppinglist_checkout
+              parameters_mapping:
+                shoppingList: $.result.shoppingList
+                showErrors: true
+              results:
+                data.checkout: $.checkout
+                result.redirectUrl: $.redirectUrl
+          - '@call_service_method':
+              service: practice_frontend.checkout.action
+              method: afterStartCheckout
+              method_parameters: [ $.result.shoppingList ]
+          - '@flush_entity': $.result.shoppingList
+          - '@delete_checkout_state':
+              conditions:
+                '@not_blank': $state_token
+              parameters:
+                entity: $checkout
+                token: $state_token
+          - '@transit_workflow':
+              conditions:
+                '@or':
+                  - '@empty': $.result.shoppingList.customerUser
+                  - '@equal': [ $.result.shoppingList.customerUser.isGuest, true ]
+              parameters:
+                entity: $checkout
+                transition: 'back_to_enter_credentials'
+                workflow: $.definition.name
+
+      finish_checkout_definition:
+        conditions:
+          '@and':
+            - '@not_empty': [ $order ]
+            - '@equal': [ $payment_in_progress, true ]
+
+        actions:
+          - '@run_action_group':
+              action_group: handle_late_registration
+              parameters_mapping:
+                checkout: $checkout
+                order: $order
+                late_registration_data: $late_registration
+          - '@run_action_group':
+              action_group: shopping_list_link_order_group
+              parameters_mapping:
+                checkout: $checkout
+                order: $order
+#          - '@shopping_list_link_order':
+#              parameters: [$checkout, $order]
+          - '@assign_value':
+              conditions:
+                '@validate_checkout_remove_source': $checkout
+              parameters: [$.result.remove_source, true]
+          - '@run_action_group':
+              action_group: b2b_flow_checkout_finish_checkout
+              parameters_mapping:
+                checkout: $checkout
+                order: $order
+                auto_remove_source: $auto_remove_source
+                allow_manual_source_remove: $allow_manual_source_remove
+                remove_source: $.result.remove_source
+                clear_source: $clear_source
+          - '@delete_checkout_state':
+              entity: $checkout

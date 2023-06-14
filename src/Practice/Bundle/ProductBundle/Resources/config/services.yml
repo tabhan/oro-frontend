@@ -1,0 +1,33 @@
+services:
+#  oro_pricing.filter.frontend_product_price:
+#    class: 'Oro\Bundle\PricingBundle\Filter\FrontendProductPriceFilter'
+#    public: false
+#    arguments:
+#      - '@form.factory'
+#      - '@oro_filter.filter_utility'
+#      - '@oro_product.formatter.product_unit_label'
+#    tags:
+#      - { name: oro_search.extension.search_filter.filter, type: frontend-product-price }
+
+  grid_filter.product_brand_list:
+    class: 'Practice\Bundle\ProductBundle\Filter\ProductBrandFilter'
+    public: false
+    arguments:
+      - '@form.factory'
+      - '@oro_filter.filter_utility'
+      - '@doctrine'
+    calls:
+      - [ setAttachmentManager, [ '@oro_attachment.manager'] ]
+    tags:
+      - { name: oro_search.extension.search_filter.filter, type: product-brand-list }
+
+  practice_product.event_listener.datagrid.product_brand_filtering:
+    class: 'Practice\Bundle\ProductBundle\EventListener\SearchProductBrandFilteringEventListener'
+    arguments:
+      - "@oro_catalog.handler.request_product"
+      - "@doctrine"
+      - '@oro_catalog.provider.subcategory_provider'
+    tags:
+      - { name: kernel.event_listener, event: oro_datagrid.datagrid.build.pre.frontend-product-search-grid, method: onPreBuild }
+
+

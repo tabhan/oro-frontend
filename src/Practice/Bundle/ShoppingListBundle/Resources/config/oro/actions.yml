@@ -1,0 +1,8 @@
+operations:
+  oro_shoppinglist_frontend_delete_action:
+    routes:
+      - oro_product_frontend_product_search
+      - oro_product_frontend_product_view
+      - oro_shopping_list_frontend_index
+      - oro_product_frontend_quick_add
+      - oro_frontend_root

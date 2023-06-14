@@ -1,0 +1,18 @@
+{% block _search_title_widget %}
+    {% if category_title is defined and category_title is not empty %}
+        {% set title = 'oro.product.search.search_in_category.title'|trans({'%count%': text|length, '%text%': text, '%category%': category_title})|e %}
+    {% else %}
+        {% set title = 'oro.product.search.search_title.title'|trans({'%count%': text|length, '%text%': text})|e %}
+    {% endif %}
+
+    {% set attr = layout_attr_defaults(attr, {
+        '~class': ' category-title',
+        'data-page-component-view': 'practiceproduct/js/app/views/frontend-product-search-title',
+        'data-page-component-options': {
+            'title': title,
+        }|json_encode
+    }) %}
+
+
+    <h1 {{ block('block_attributes') }}>{{ title }}</h1>
+{% endblock %}

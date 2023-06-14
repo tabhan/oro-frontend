@@ -1,7 +1,0 @@
-action_groups:
-  b2b_flow_checkout_finish_checkout:
-    actions:
-      - '@call_service_method':
-          service: tab_frontend.checkout.action
-          method: linkOrderToShoppingListItem
-          method_parameters: [ $.checkout, $.order ]

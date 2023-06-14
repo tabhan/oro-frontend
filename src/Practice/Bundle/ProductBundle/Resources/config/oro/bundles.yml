@@ -1,0 +1,2 @@
+bundles:
+  - { name: Practice\Bundle\ProductBundle\PracticeProductBundle, priority: 350 }

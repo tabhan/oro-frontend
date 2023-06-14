@@ -1,0 +1,8 @@
+oro_layout:
+  enabled_themes:
+    - practice
+    - blank
+    - default
+    - view-switcher
+  active_theme: practice
+

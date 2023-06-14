@@ -1,0 +1,14 @@
+services:
+  oro_shopping_list.layout.type.shopping_list_dropdown_remove:
+    parent: oro_layout.block_type.abstract_configurable
+    calls:
+      - [ setName, [ 'shopping_list_dropdown_remove' ] ]
+    tags:
+      - { name: layout.block_type, alias: shopping_list_dropdown_remove }
+
+  oro_shopping_list.layout.type.shopping_list_dropdown_view:
+    parent: oro_layout.block_type.abstract_configurable
+    calls:
+      - [ setName, [ 'shopping_list_dropdown_view' ] ]
+    tags:
+      - { name: layout.block_type, alias: shopping_list_dropdown_view }

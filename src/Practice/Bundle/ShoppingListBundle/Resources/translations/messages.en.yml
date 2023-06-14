@@ -1,0 +1,6 @@
+practice:
+    frontend:
+        shoppinglist:
+            lineitem:
+                order_id:
+                    label: Order Id

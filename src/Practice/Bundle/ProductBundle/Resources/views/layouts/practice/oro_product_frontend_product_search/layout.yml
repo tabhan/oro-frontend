@@ -1,0 +1,7 @@
+layout:
+  actions:
+    - '@setBlockTheme':
+        themes: layout.html.twig
+
+    - '@remove':
+        id: product_datagrid_items_counter

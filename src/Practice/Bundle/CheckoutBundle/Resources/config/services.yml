@@ -1,0 +1,24 @@
+services:
+  practice_frontend.checkout.action:
+    class: Practice\Bundle\CheckoutBundle\Action\CheckedItemAction
+    public: true
+    calls:
+      - [ setLogger, [ '@logger' ] ]
+
+  practice_fontend.link_order.action:
+    class: Practice\Bundle\CheckoutBundle\Action\ShoppingListLinkOrderAction
+    public: true
+    arguments:
+      - '@oro_action.expression.context_accessor'
+      - '@doctrine'
+    calls:
+      - [ setLogger, [ '@logger' ] ]
+    tags:
+      - { name: oro_action.action, alias: shopping_list_link_order }
+
+  practice_checkout.condition.validate_checkout_remove_source:
+    class: 'Practice\Bundle\CheckoutBundle\Condition\ValidateEmptySource'
+    calls:
+      - [ setLogger, [ '@logger' ] ]
+    tags:
+      - { name: oro_action.condition, alias: 'validate_checkout_remove_source' }

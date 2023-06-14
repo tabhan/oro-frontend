@@ -1,0 +1,5 @@
+workflows:
+  practice_checkout:
+    attributes:
+      shopping_list_checked_items:
+        type: string

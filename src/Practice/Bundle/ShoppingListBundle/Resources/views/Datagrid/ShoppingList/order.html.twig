@@ -1,0 +1,10 @@
+{%- set orderId = record.getValue('order_id') -%}
+<div class="order-info">
+    {%- if orderId is not empty -%}
+        <a href="{{ path('oro_order_frontend_view', {id: record.getValue('order_id')}) }}">
+            {{- orderId -}}
+        </a>
+    {%- else -%}
+        --
+    {%- endif -%}
+</div>
